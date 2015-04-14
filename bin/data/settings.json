@@ -1,0 +1,16 @@
+{
+  "width" : 1080,
+  "height" : 1920,
+  "scale" : 1,
+  "local_port" : 8080,
+  "decay" : 0.985,
+  "speed" : 70,
+  "linear_time" : 100, //100
+  "exponential_time" : 1500, //1500
+  "icon_size" : 432,
+  "sleep_time": 1500,
+  "price_sample_x" : 540,
+  "price_sample_y" : 1000,
+  "pace" : 10,
+  "background" : ["FFFDC2", "F4EA6E", "F7B228", "F48C7D", "F74F6F", "F995BA", "E3CAEF", "9DC0C9", "70F2D9", "81EAAE"]
+}
