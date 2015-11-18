@@ -7,22 +7,26 @@
 IDLE::IDLE(App *a){
     app = a;
     ofLogNotice() << "State: " << toString();
+    back = 0;
 };
 
 void IDLE::update(){
     app->renderer->animate();
+    
+    if(ofGetFrameNum() % 30 == 0)
+        back = (back + 1) % 2;
 }
 
 void IDLE::draw(){
     float width = Settings::getInstance()->getWidth();
     float height = Settings::getInstance()->getHeight();
     
-    Assets::getInstance()->background_neutro.draw(0, 0, width, height);
-    for(int i = 0; i < 5; i ++)
-        Assets::getInstance()->back_art_0[i].draw(0, 0, width, height);
-    Assets::getInstance()->background_idle.draw(0, 0, width,  height);
     
+    Assets::getInstance()->background[back].draw(0, 0, width, height);
+    Assets::getInstance()->title.draw(0, 0, width, height);
+  
     app->renderer->drawRules();
+    
 };
 
 void IDLE::push(){

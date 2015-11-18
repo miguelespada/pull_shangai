@@ -7,27 +7,21 @@ Winner::Winner(App *a){
     app = a;
     ofLogNotice() << "State: " << toString();
     timer = ofGetElapsedTimeMillis();
+    back = 0;
 };
 
 void Winner::draw(){
     float width = Settings::getInstance()->getWidth();
     float height = Settings::getInstance()->getHeight();
+ 
+    Assets::getInstance()->background[back + 1].draw(0, 0, width, height);
     
-    Assets::getInstance()->background_neutro.draw(0, 0,width, height);
-
-    if((ofGetFrameNum() / 30) % 2 == 0){
-        for(int i = 0; i < 4; i ++)
-            Assets::getInstance()->back_art_1[i].draw(0, 0,width, height);
-    }
-    else{
-        
-        for(int i = 0; i < 4; i ++)
-            Assets::getInstance()->back_art_2[i].draw(0, 0,width, height);
-    }
-
     app->renderer->drawWinner(app->priceManager->getPrice());
     
-  //  app->ruleta->draw(ofColor(0));
+    
+    app->ruleta->draw(ofColor(0));
+    
+    Assets::getInstance()->hash.draw(0, 0, width, height);
 };
 
 void Winner::update(){
@@ -35,6 +29,9 @@ void Winner::update(){
         app->setCurrentState(new IDLE(app));
         delete this;
     }
+    
+    if(ofGetFrameNum() % 15 == 0)
+        back = (back + 1) % 2;
 }
 
 void Winner::next(){

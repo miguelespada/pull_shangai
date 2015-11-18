@@ -15,6 +15,9 @@ void ofApp::setup(){
     ofSetWindowShape(Settings::getInstance()->getWidth(), Settings::getInstance()->getHeight());
     app.setCurrentState(new IDLE(&app));
     setRotation();
+    
+//    ofToggleFullscreen();
+//    ofSetWindowPosition(1920, 0);
 }
 
 //--------------------------------------------------------------

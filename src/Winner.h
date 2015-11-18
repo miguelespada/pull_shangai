@@ -11,6 +11,7 @@ public:
     void update();
     void draw();
     void next();
+    
 };
 
 #endif /* defined(__planta__First_state__) */

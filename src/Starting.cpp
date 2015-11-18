@@ -8,6 +8,7 @@
 Starting::Starting(App *a){
     app = a;
     ofLogNotice() << "State: " << toString();
+    back = 0;
 };
 
 void Starting::draw(){
@@ -15,21 +16,24 @@ void Starting::draw(){
     float width = Settings::getInstance()->getWidth();
     float height = Settings::getInstance()->getHeight();
     
-    Assets::getInstance()->background_neutro.draw(0, 0, width, height);
     
-    Assets::getInstance()->back_art_1[0].draw(0, 0, width, height);
+    Assets::getInstance()->background[back].draw(0, 0, width, height);
     
-    Assets::getInstance()->background_runnning.draw(0,0,width, height);
     
     app->ruleta->draw(ofColor(0));
-    app->ruleta->drawMasks(ofColor(0));
+    
+    Assets::getInstance()->title.draw(0, 0, width, height);
+    
+    Assets::getInstance()->hash.draw(0, 0, width, height);
 
     
-    for(int i = 1; i < 5; i ++)
-        Assets::getInstance()->back_art_1[i].draw(0, 0, width, height);
 };
 
 void Starting::update(){
+    
+    if(ofGetFrameNum() % 30 == 0)
+        back = (back + 1) % 2;
+    
     if(!app->ruleta->isCancelable()){
         app->setCurrentState(new Running(app));
         delete this;

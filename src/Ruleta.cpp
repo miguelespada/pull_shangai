@@ -97,30 +97,7 @@ void Ruleta::drawPrices(){
 }
 
 void Ruleta::drawPrice(priceIcon p){
-    Settings *settings = Settings::getInstance();
-    Assets *assets = Assets::getInstance();
-    
-    float scale = Settings::getInstance()->getScale();
-    
-    float height = assets->price_images[p.name].getHeight() * scale;
-    float width = assets->price_images[p.name].getWidth() * scale;
-    
-    
-    ofPushMatrix();
-    ofTranslate(settings->getWidth()/2 + 55 * scale, settings->getHeight()/2 - height/2);
-    
-    
-    Assets::getInstance()->price_images[p.name].draw(0, p.x + height/2 + 12 * scale, height, width);
-
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(55 * scale, settings->getHeight()/2 - height/2);
-    if(abs(p.x) < 45)
-        Assets::getInstance()->price_captions[p.name].draw(0, height/2 + 12 * scale, height, width);
-    ofPopMatrix();
-    
+    Assets::getInstance()->price_images[p.name].draw(p.x, 0);
 }
 
 

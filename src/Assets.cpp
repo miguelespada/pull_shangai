@@ -28,29 +28,11 @@ void Assets::load(){
     
     import_price_list();
     
-    string filename = assets_path + "background/idle.png";
-    background_idle.loadImage(filename);
-    ofLogNotice() << "Loading: " << filename;
-    
-    filename = assets_path + "background/running.png";
-    background_runnning.loadImage(filename);
-    ofLogNotice() << "Loading: " << filename;
-
-    
-    filename = assets_path + "background/background.png";
-    background_neutro.loadImage(filename);
-    ofLogNotice() << "Loading: " << filename;
-
-    
     for(int i = 0; i < price_number(); i++){
         string filename = assets_path + "icons/" + prices[i] + ".png";
         price_images[prices[i]].loadImage( filename );
         ofLogNotice() << "Loading: " << filename;
-        
-        filename = assets_path + "names/" + prices[i] + ".png";
-        price_captions[prices[i]].loadImage( filename );
-        ofLogNotice() << "Loading: " << filename;
-        
+            
         if(prices[i] != "nothing"){
             price_samples.push_back(price_images[prices[i]]);
         }
@@ -62,30 +44,35 @@ void Assets::load(){
         ofLogNotice() << "Loading: " << filename;
     }
 
-    for(int i = 0; i < Settings::getInstance()->getNumRules(); i ++){
-        string filename = assets_path + "rules/rule_" + ofToString(i) + ".png";
+    for(int i = 0; i < 3; i ++){
+        string filename = assets_path + "rules/rule-" + ofToString(i) + ".png";
         rules[i].loadImage(filename);
         ofLogNotice() << "Loading: " << filename ;
     }
     
-    for(int i = 0; i < 5; i ++){
-        string filename = assets_path + "background/art_0/back_" + ofToString(i) + ".png";
-        back_art_0[i].loadImage(filename);
-        ofLogNotice() << "Loading: " << filename ;
-    }
-    
-    for(int i = 0; i < 5; i ++){
-        string filename = assets_path + "background/art_1/back_" + ofToString(i) + ".png";
-        back_art_1[i].loadImage(filename);
-        ofLogNotice() << "Loading: " << filename ;
-    }
-    
-    for(int i = 0; i < 4; i ++){
-        string filename = assets_path + "background/art_2/back_" + ofToString(i) + ".png";
-        back_art_2[i].loadImage(filename);
+    for(int i = 0; i < 3; i ++){
+        string filename = assets_path + "background-" + ofToString(i) + ".png";
+        background[i].loadImage(filename);
         ofLogNotice() << "Loading: " << filename ;
     }
 
+    
+    string filename = assets_path + "rules/conditions.png";
+    conditions.loadImage(filename);
+    ofLogNotice() << "Loading: " << filename ;
+    
+    filename = assets_path + "rules/hash.png";
+    hash.loadImage(filename);
+    ofLogNotice() << "Loading: " << filename ;
+    
+    filename = assets_path + "rules/pull.png";
+    pull.loadImage(filename);
+    ofLogNotice() << "Loading: " << filename ;
+    
+    
+    filename = assets_path + "rules/title.png";
+    title.loadImage(filename);
+    ofLogNotice() << "Loading: " << filename ;
 }
 
 int Assets::price_number(){

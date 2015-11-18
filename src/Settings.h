@@ -20,6 +20,7 @@ public:
     
     int getWidth();
     int getHeight();
+    float getScale();
     
     int getRemotePort();
     int getLocalPort();
@@ -36,7 +37,6 @@ public:
     int getPriceSampleX();
     int getPriceSampleY();
     int getPace();
-    float getScale();
     
     ofColor getBackgroundColor(int index);
     

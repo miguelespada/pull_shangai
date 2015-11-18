@@ -26,6 +26,8 @@ public:
     virtual void draw() {};
     virtual void update() {};
     virtual void push() {};
+    
+    int back;
 };
 
 

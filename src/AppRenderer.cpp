@@ -35,12 +35,9 @@ void AppRenderer::drawRules(){
     float height = Settings::getInstance()->getHeight();
     
     assets->rules[rule].draw(0, 0, width, height);
-    float scale = Settings::getInstance()->getScale();
     
-    float icon_height = assets->price_samples[random_sample].getHeight() * scale;
-    float icon_width = assets->price_samples[random_sample].getWidth() * scale;
-    assets->price_samples[random_sample].draw(width/2 + 55 * scale, height/2  + 12 * scale, icon_width, icon_height);
-    
+    assets->conditions.draw(0, 0, width, height);
+    assets->pull.draw(0, 0, width, height);
     ofPopStyle();
 }
 
@@ -50,7 +47,6 @@ void AppRenderer::drawDot(){
     
     Assets *assets = Assets::getInstance();
     
-    assets->dot_animation[animation].draw(0,0);
     ofPopStyle();
     
     int pace = Settings::getInstance()->getPace();
@@ -96,7 +92,7 @@ void AppRenderer::drawWinner(string price){
     ofSetColor(255);
     
     Assets *assets = Assets::getInstance();
-    assets->price_winnings[price].draw(0, 0, Settings::getInstance()->getWidth(), Settings::getInstance()->getHeight());
+    assets->price_winnings[price].draw(0, 0);
     ofPopStyle();
 
 }

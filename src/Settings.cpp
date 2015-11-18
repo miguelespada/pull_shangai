@@ -20,7 +20,7 @@ void Settings::load(){
 }
 
 string Settings::assetsPath(){
-    return ofToDataPath("assets") + "/shangai/" ;
+    return ofToDataPath("assets") + "/hermosilla/" ;
 }
 
 Json::Value Settings::getData(string key){

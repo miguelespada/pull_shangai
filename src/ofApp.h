@@ -20,7 +20,7 @@ public:
     App app;
     Info info;
     OscAdapter osc;
-    bool bRotated = true;
+    bool bRotated = false;
 };
 
 
