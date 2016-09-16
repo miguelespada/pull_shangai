@@ -13,7 +13,7 @@ IDLE::IDLE(App *a){
 void IDLE::update(){
     app->renderer->animate();
     
-    if(ofGetFrameNum() % 30 == 0)
+    if(ofGetFrameNum() % 20 == 0)
         back = (back + 1) % 2;
 }
 
@@ -24,6 +24,7 @@ void IDLE::draw(){
     
     Assets::getInstance()->background[back].draw(0, 0, width, height);
     Assets::getInstance()->title.draw(0, 0, width, height);
+    Assets::getInstance()->hash.draw(0, 0, width, height);
   
     app->renderer->drawRules();
     

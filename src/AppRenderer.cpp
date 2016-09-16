@@ -34,10 +34,14 @@ void AppRenderer::drawRules(){
     float width = Settings::getInstance()->getWidth();
     float height = Settings::getInstance()->getHeight();
     
-    assets->rules[rule].draw(0, 0, width, height);
-    
-    assets->conditions.draw(0, 0, width, height);
-    assets->pull.draw(0, 0, width, height);
+    if(language == 0){
+        assets->rules_es[rule].draw(0, 0, width, height);
+        assets->terms_es.draw(0, 0, width, height);
+    }
+    else{
+        assets->rules_en[rule].draw(0, 0, width, height);
+        assets->terms_en.draw(0, 0, width, height);
+    }
     ofPopStyle();
 }
 
@@ -70,15 +74,11 @@ void AppRenderer::animate(){
     int pace = Settings::getInstance()->getPace();
     
     
-    if(ofGetFrameNum() % (4 * pace) == 0){
-        if(assets->price_number() > 1)
-            price_sample = (price_sample + 1) % (assets->price_number() - 1);
-    }
-    
-    if(ofGetFrameNum() % (8 * pace) == 0){
+    if(ofGetFrameNum() % (6 * pace) == 0){
         rule = (rule + 1) % Settings::getInstance()->getNumRules() ;
-        
-        random_sample = ofRandom(assets->price_samples.size());
+        if(rule == 0){
+            language = (language + 1) % Settings::getInstance()->getNumLang() ;
+        }
     }
     
 }
@@ -90,9 +90,14 @@ ofColor AppRenderer::getBackgroundColor(){
 void AppRenderer::drawWinner(string price){
     ofPushStyle();
     ofSetColor(255);
-    
     Assets *assets = Assets::getInstance();
-    assets->price_winnings[price].draw(0, 0);
+    
+    if(language == 0){
+        assets->price_winnings_es[price].draw(0, 0);
+    }
+    else{
+        assets->price_winnings_en [price].draw(0, 0);
+    }
     ofPopStyle();
 
 }

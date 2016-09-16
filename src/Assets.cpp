@@ -37,41 +37,64 @@ void Assets::load(){
             price_samples.push_back(price_images[prices[i]]);
         }
         
-        filename = assets_path + "win/" + prices[i] + ".png";
+        filename = assets_path + "win/es/" + prices[i] + ".png";
         ofImage img;
         img.loadImage(filename);
-        price_winnings[prices[i]] = img;
+        price_winnings_es[prices[i]] = img;
+        ofLogNotice() << "Loading: " << filename;
+        
+        filename = assets_path + "win/en/" + prices[i] + ".png";
+        ofImage img2;
+        img2.loadImage(filename);
+        price_winnings_en[prices[i]] = img2;
+        ofLogNotice() << "Loading: " << filename;
+        
+        
+        filename = assets_path + "win/icons/" + prices[i] + ".png";
+        ofImage img3;
+        img3.loadImage(filename);
+        price_images[prices[i]] = img3;
         ofLogNotice() << "Loading: " << filename;
     }
+    
 
-    for(int i = 0; i < 3; i ++){
-        string filename = assets_path + "rules/rule-" + ofToString(i) + ".png";
-        rules[i].loadImage(filename);
+    for(int i = 0; i < 2; i ++){
+        string filename = assets_path + "rules/es/" + ofToString(i) + ".png";
+        rules_es[i].loadImage(filename);
         ofLogNotice() << "Loading: " << filename ;
     }
     
-    for(int i = 0; i < 3; i ++){
-        string filename = assets_path + "background-" + ofToString(i) + ".png";
+    
+    for(int i = 0; i < 2; i ++){
+        string filename = assets_path + "rules/en/" + ofToString(i) + ".png";
+        rules_en[i].loadImage(filename);
+        ofLogNotice() << "Loading: " << filename ;
+    }
+
+    
+    for(int i = 0; i < 4; i ++){
+        string filename = assets_path + "background/" + ofToString(i) + ".png";
         background[i].loadImage(filename);
         ofLogNotice() << "Loading: " << filename ;
     }
 
+
+    string filename;
     
-    string filename = assets_path + "rules/conditions.png";
-    conditions.loadImage(filename);
-    ofLogNotice() << "Loading: " << filename ;
-    
-    filename = assets_path + "rules/hash.png";
+    filename = assets_path + "hash.png";
     hash.loadImage(filename);
     ofLogNotice() << "Loading: " << filename ;
     
-    filename = assets_path + "rules/pull.png";
-    pull.loadImage(filename);
-    ofLogNotice() << "Loading: " << filename ;
-    
-    
-    filename = assets_path + "rules/title.png";
+    filename = assets_path + "title.png";
     title.loadImage(filename);
+    
+    ofLogNotice() << "Loading: " << filename ;
+    filename = assets_path + "rules/es/terms.png";
+    terms_es.loadImage(filename);
+    
+    ofLogNotice() << "Loading: " << filename ;
+    filename = assets_path + "rules/en/terms.png";
+    terms_en.loadImage(filename);
     ofLogNotice() << "Loading: " << filename ;
 }
 

@@ -36,8 +36,15 @@ void OscAdapter::update(ofEventArgs &args){
         bOnline = true;
         ofxOscMessage m;
         receiver->getNextMessage(&m);
+        cout << m.getAddress()  << endl;
         if(m.getAddress() == "/key_down"){
             notifyPush();
+        }
+        if(m.getAddress() == "/keydown"){
+            notifyPush();
+        }
+        if(m.getAddress() == "/ping"){
+            cout << "Rasp alive" << endl;
         }
     }
 }

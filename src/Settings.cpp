@@ -20,7 +20,7 @@ void Settings::load(){
 }
 
 string Settings::assetsPath(){
-    return ofToDataPath("assets") + "/hermosilla/" ;
+    return ofToDataPath("assets") + "/naron/" ;
 }
 
 Json::Value Settings::getData(string key){
@@ -103,11 +103,11 @@ int  Settings::getPace(){
 
 
 int Settings::getNumRules() {
-    return 3;
+    return 2;
 };
 
 int Settings::getNumLang() {
-    return 1;
+    return 2;
 };
 
 int Settings::getNumOfBackgroundColors() {

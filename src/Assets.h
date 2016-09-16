@@ -20,12 +20,16 @@ public:
     static Assets* getInstance();
     void load();
 
-    std::map<std::string, ofImage> price_images, price_winnings;
+    std::map<std::string, ofImage> price_images, price_winnings_es, price_winnings_en;
     vector<ofImage> price_samples;
     
-    ofImage background[3];
-    ofImage rules[3];
-    ofImage conditions;
+    ofImage background[4];
+    ofImage rules_es[2];
+    ofImage rules_en[2];
+    
+    
+    ofImage terms_es;
+    ofImage terms_en;
     ofImage hash;
     ofImage title;
     ofImage pull;
