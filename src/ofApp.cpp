@@ -16,8 +16,8 @@ void ofApp::setup(){
     app.setCurrentState(new IDLE(&app));
     setRotation();
     
-//    ofToggleFullscreen();
-//    ofSetWindowPosition(1921, 0);
+    ofToggleFullscreen();
+    ofSetWindowPosition(1281, 0);
 }
 
 //--------------------------------------------------------------
@@ -52,12 +52,10 @@ void ofApp::keyPressed(int key){
         case ' ':
             OscAdapter::notifyPush();
             break;
+        
         case 'R':
             bRotated = !bRotated;
             setRotation();
-            break;
-        case 'n':
-            app.next();
             break;
         default:
             break;
